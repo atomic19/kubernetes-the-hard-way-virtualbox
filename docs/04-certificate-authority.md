@@ -209,7 +209,7 @@ The `kubernetes-the-hard-way` static IP address will be included in the list of 
 Retrieve the `kubernetes-the-hard-way` static IP address:
 
 ```
-KUBERNETES_PUBLIC_ADDRESS="192.168.100.100"
+KUBERNETES_PUBLIC_ADDRESS="192.168.100.101"
 ```
 
 Create the Kubernetes API Server certificate signing request:
