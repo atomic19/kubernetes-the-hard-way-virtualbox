@@ -4,6 +4,12 @@
 
 This tutorial leverages the [VirtualBox](https://www.virtualbox.org/) to streamline provisioning of the compute infrastructure required to bootstrap a Kubernetes cluster from the ground up. Click to [download and install VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
+## Virtualbox setup
+create or update virtual box networking config file located at /etc/vbox/networks.conf and add this as the first line
+```
+* 192.168.100.0/24
+```
+
 ### Vagrant
 
 使用 [Vagrant](https://www.vagrantup.com/) 管理虚拟机资源，使用 [vagrant-hosts](https://github.com/oscar-stack/vagrant-hosts) 插件管理虚拟机中的`/etc/hosts`文件。

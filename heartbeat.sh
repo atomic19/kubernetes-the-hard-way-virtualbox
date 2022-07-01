@@ -1,8 +1,11 @@
 #!/bin/bash
 
 apt-get update
+export DEBIAN_FRONTEND=noninteractive
 #apt-get -y dist-upgrade
 apt-get install -y heartbeat
+
+service heartbeat stop
 
 cat >/etc/ha.d/ha.cf <<EOF
 debugfile /var/log/ha-debug
@@ -22,7 +25,7 @@ node    controller-2
 EOF
 
 cat >/etc/ha.d/haresources <<EOF
-controller-0 IPaddr::192.168.100.100/24/$(ip -4 --oneline addr | grep '192\.168\.100\.' | cut -d' ' -f2)
+controller-0 IPaddr::192.168.100.101/24/$(ip -4 --oneline addr | grep '192\.168\.100\.' | cut -d' ' -f2)
 EOF
 
 cat >/etc/ha.d/authkeys <<EOF
@@ -30,5 +33,7 @@ auth 1
 1 md5 just-for-learning
 EOF
 chmod 600 /etc/ha.d/authkeys
+
+service heartbeat status
 
 service heartbeat restart

@@ -34,6 +34,12 @@ Vagrant.configure(2) do |config|
         vb.memory = 512
       end
       node.vm.provision "shell", path: "worker-provision.sh"
+      node.trigger.after :up do |t|
+        if (i == 2) then
+          t.info = 'Running reboot on controller machines'
+          t.run = { :inline => 'vagrant reload controller-0 controller-1 controller-2' }
+        end
+      end
     end
   end
 end

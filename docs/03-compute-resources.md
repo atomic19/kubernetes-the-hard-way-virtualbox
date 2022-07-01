@@ -53,20 +53,20 @@ worker-2                  running (virtualbox)
 ```
 
 ## Kubernetes Master VIP
-When Vagrant creates a virtual machine, it executes the deployment script `heartbeat.sh`, and uses heartbeat to configure VIPs on three controller nodes: 192.168.100.100. This IP is used for external access to Kubernetes.
+When Vagrant creates a virtual machine, it executes the deployment script `heartbeat.sh`, and uses heartbeat to configure VIPs on three controller nodes: 192.168.100.101. This IP is used for external access to Kubernetes.
 
 ### Verification
 ```
-ping -c 1 192.168.100.100
+ping -c 1 192.168.100.101
 ```
 
 > output
 
 ```
-PING 192.168.100.100 (192.168.100.100): 56 data bytes
-64 bytes from 192.168.100.100: icmp_seq=0 ttl=64 time=0.438 ms
+PING 192.168. (192.168.100.101): 56 data bytes
+64 bytes from 192.168.100.101: icmp_seq=0 ttl=64 time=0.438 ms
 
---- 192.168.100.100 ping statistics ---
+--- 192.168.100.101 ping statistics ---
 1 packets transmitted, 1 packets received, 0.0% packet loss
 round-trip min/avg/max/stddev = 0.438/0.438/0.438/0.000 ms
 ```
